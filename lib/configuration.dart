@@ -10,3 +10,11 @@ List<BoxShadow> customShadow = [
     offset: Offset(0, 10),
   ),
 ];
+
+List<BoxShadow> lightCustomShadow = [
+  BoxShadow(
+    color: Colors.grey[300],
+    blurRadius: 30,
+    offset: Offset(0, 10),
+  ),
+];

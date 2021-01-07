@@ -2,9 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:healthApp/configuration.dart';
+import 'package:healthApp/screens/profile_2.dart';
 import 'package:healthApp/screens/splash_screen.dart';
 import 'package:healthApp/widgets/back_button.dart';
 import 'package:healthApp/widgets/custom_button.dart';
+import 'package:healthApp/widgets/gender_card.dart';
 
 class Profile1 extends StatefulWidget {
   @override
@@ -12,6 +14,7 @@ class Profile1 extends StatefulWidget {
 }
 
 class _Profile1State extends State<Profile1> {
+  bool _isFemale = true;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -46,78 +49,87 @@ class _Profile1State extends State<Profile1> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
-                  'Which one are you?',
+                  'Which is your name?',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+
+                SizedBox(
+                  height: 30,
+                ),
+                //TextInputField
                 Container(
-                  margin: EdgeInsets.symmetric(horizontal: 10, vertical: 40),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        margin: EdgeInsets.symmetric(horizontal: 10),
-                        height: 210,
-                        width: (size.width - 60) / 2,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          boxShadow: customShadow,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(
-                              'Male',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
-                              ),
-                            ),
-                            SvgPicture.asset(
-                              'images/svg/male.svg',
-                              fit: BoxFit.cover,
-                              width: 130,
-                            )
-                          ],
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.symmetric(horizontal: 10),
-                        height: 210,
-                        width: (size.width - 60) / 2,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          boxShadow: customShadow,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(
-                              'Male',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
-                              ),
-                            ),
-                            SvgPicture.asset(
-                              'images/svg/male.svg',
-                              fit: BoxFit.cover,
-                              width: 130,
-                            )
-                          ],
-                        ),
-                      ),
-                    ],
+                  margin: EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 10,
                   ),
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: 10,
+                  ),
+                  height: 55,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: customShadow,
+                    color: Colors.white,
+                  ),
+                  child: TextField(
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.all(10),
+                      hintText: 'First name',
+                      hintStyle: TextStyle(
+                        fontSize: 18,
+                      ),
+                      fillColor: Colors.green,
+                      border: InputBorder.none,
+                    ),
+                  ),
+                ),
+
+                Container(
+                  margin: EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 10,
+                  ),
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: 10,
+                  ),
+                  height: 55,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: customShadow,
+                    color: Colors.white,
+                  ),
+                  child: TextField(
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.all(10),
+                      hintText: 'Last name',
+                      hintStyle: TextStyle(
+                        fontSize: 18,
+                      ),
+                      fillColor: Colors.green,
+                      border: InputBorder.none,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 30,
                 ),
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: 40),
                   child: Text(
-                    'To give you a customized experience we need to know your gender',
+                    'We do not let you information to any third party applications',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 14,
@@ -126,7 +138,7 @@ class _Profile1State extends State<Profile1> {
                   ),
                 ),
                 SizedBox(
-                  height: 120,
+                  height: 160,
                 ),
                 CustomButton(
                   label: 'Continue',
@@ -134,21 +146,10 @@ class _Profile1State extends State<Profile1> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) {
-                        return SplashScreen();
+                        return Profile2();
                       }),
                     );
                   },
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  'Prefer not to choose',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: primaryColor,
-                  ),
                 ),
                 SizedBox(
                   height: 40,
